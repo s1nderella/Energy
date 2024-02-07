@@ -53,74 +53,84 @@ def calculate():
 
 # Create the main tkinter window
 root = tk.Tk()
-root.title("Input Form")
+root.title("Input Parameter")
+
 
 # Create and place labels and entry widgets
+pipe_frame = ttk.LabelFrame(root, text="Pipe Parameters", padding=(10,10))
+pipe_frame.grid(row=0, column=0, padx=10, pady=10)
 
-tk.Label(root, text="Pipe Length (m)").grid(row=0, column=0)
-L_entry = tk.Entry(root)
-L_entry.grid(row=1, column=0)
+tk.Label(pipe_frame, text="Pipe Length (m)").grid(row=1, column=0, padx=10, pady=2)
+L_entry = tk.Entry(pipe_frame)
+L_entry.grid(row=2, column=0, padx=10, pady=5)
 
-tk.Label(root, text="Inner Pipe Radius (m)").grid(row=0, column=1)
-r1_entry = tk.Entry(root)
-r1_entry.grid(row=1, column=1)
+tk.Label(pipe_frame, text="Inner Pipe Radius (m)").grid(row=1, column=1, padx=10, pady=2)
+r1_entry = tk.Entry(pipe_frame)
+r1_entry.grid(row=2, column=1, padx=10, pady=5)
 
-tk.Label(root, text="Outer Pipe Radius (m)").grid(row=0, column=2)
-r2_entry = tk.Entry(root)
-r2_entry.grid(row=1, column=2)
+tk.Label(pipe_frame, text="Outer Pipe Radius (m)").grid(row=1, column=2, padx=10, pady=2)
+r2_entry = tk.Entry(pipe_frame)
+r2_entry.grid(row=2, column=2, padx=10, pady=5)
 
-tk.Label(root, text="Node Number").grid(row=2, column=1)
-n_entry = tk.Entry(root)
-n_entry.grid(row=3, column=1)
+tk.Label(pipe_frame, text="Node Number").grid(row=3, column=1, padx=10, pady=2)
+n_entry = tk.Entry(pipe_frame)
+n_entry.grid(row=4, column=1, padx=10, pady=(5,10))
 
-tk.Label(root, text="Fluid1").grid(row=4, column=1)
+fluid1_frame = ttk.LabelFrame(root, text="Fluid1 Parameters", padding=(10,10))
+fluid1_frame.grid(row=5, column=0, padx=10, pady=10)
 
-tk.Label(root, text="Mass Flow Rate (kg/s)").grid(row=5, column=0)
-m1_entry = tk.Entry(root)
-m1_entry.grid(row=6, column=0)
+tk.Label(fluid1_frame, text="Mass Flow Rate (kg/s)").grid(row=6, column=0, padx=10, pady=2)
+m1_entry = tk.Entry(fluid1_frame)
+m1_entry.grid(row=7, column=0, padx=10, pady=(5,10))
 
-tk.Label(root, text="Heat Capacity of Fluid").grid(row=5, column=1)
-Cp1_entry = tk.Entry(root)
-Cp1_entry.grid(row=6, column=1)
 
-tk.Label(root, text="Density of Fluid").grid(row=5, column=2)
-rho1_entry = tk.Entry(root)
-rho1_entry.grid(row=6, column=2)
+tk.Label(fluid1_frame, text="Heat Capacity of Fluid").grid(row=6, column=1, padx=10, pady=2)
+Cp1_entry = tk.Entry(fluid1_frame)
+Cp1_entry.grid(row=7, column=1, padx=10, pady=(5,10))
 
-tk.Label(root, text="Fluid2").grid(row=7, column=1)
+tk.Label(fluid1_frame, text="Density of Fluid (kg/m^3)").grid(row=6, column=2, padx=10, pady=2)
+rho1_entry = tk.Entry(fluid1_frame)
+rho1_entry.grid(row=7, column=2, padx=10, pady=(5,10))
 
-tk.Label(root, text="Mass Flow Rate (kg/s)").grid(row=8, column=0)
-m2_entry = tk.Entry(root)
-m2_entry.grid(row=9, column=0)
+fluid2_frame = ttk.LabelFrame(root, text="Fluid2 Parameters", padding=(10,10))
+fluid2_frame.grid(row=8, column=0, padx=10, pady=10)
 
-tk.Label(root, text="Heat Capacity of Fluid").grid(row=8, column=1)
-Cp2_entry = tk.Entry(root)
-Cp2_entry.grid(row=9, column=1)
 
-tk.Label(root, text="Density of Fluid").grid(row=8, column=2)
-rho2_entry = tk.Entry(root)
-rho2_entry.grid(row=9, column=2)
+tk.Label(fluid2_frame, text="Mass Flow Rate (kg/s)").grid(row=9, column=0, padx=10, pady=2)
+m2_entry = tk.Entry(fluid2_frame)
+m2_entry.grid(row=10, column=0, padx=10, pady=(5,10))
 
-tk.Label(root, text="Inlet Temperature (K)").grid(row=10, column=0)
-T1i_entry = tk.Entry(root)
-T1i_entry.grid(row=11, column=0)
+tk.Label(fluid2_frame, text="Heat Capacity of Fluid").grid(row=9, column=1, padx=10, pady=2)
+Cp2_entry = tk.Entry(fluid2_frame)
+Cp2_entry.grid(row=10, column=1, padx=10, pady=(5,10))
 
-tk.Label(root, text="Pipe Inner Surface Temperature (K)").grid(row=10, column=1)
-T2i_entry = tk.Entry(root)
-T2i_entry.grid(row=11, column=1)
+tk.Label(fluid2_frame, text="Density of Fluid (kg/m^3)").grid(row=9, column=2, padx=10, pady=2)
+rho2_entry = tk.Entry(fluid2_frame)
+rho2_entry.grid(row=10, column=2, padx=10, pady=(5,10))
 
-tk.Label(root, text="Innitial Temperature (K)").grid(row=10, column=2)
-T0_entry = tk.Entry(root)
-T0_entry.grid(row=11, column=2)
+temp_frame = ttk.LabelFrame(root, text="Temperature Parameters", padding=(10,10))
+temp_frame.grid(row=11, column=0, padx=10, pady=10)
 
-tk.Label(root, text="Overall Heat Transfer Coefficient (W/m^2)").grid(row=12, column=1)
+tk.Label(temp_frame, text="Inlet Temperature (K)").grid(row=12, column=0, padx=10, pady=2)
+T1i_entry = tk.Entry(temp_frame)
+T1i_entry.grid(row=13, column=0, padx=10, pady=(5,10))
+
+tk.Label(temp_frame, text="Pipe Inner Surface Temperature (K)").grid(row=12, column=1, padx=10, pady=2)
+T2i_entry = tk.Entry(temp_frame)
+T2i_entry.grid(row=13, column=1, padx=10, pady=(5,10))
+
+tk.Label(temp_frame, text="Innitial Temperature (K)").grid(row=12, column=2, padx=10, pady=2)
+T0_entry = tk.Entry(temp_frame)
+T0_entry.grid(row=13, column=2, padx=10, pady=(5,10))
+
+tk.Label(root, text="Overall Heat Transfer Coefficient (W/m^2)").grid(row=14, column=0)
 U_entry = tk.Entry(root)
-U_entry.grid(row=13, column=1)
+U_entry.grid(row=15, column=0, padx=10, pady=(5,10))
 
 
 # Create a button to trigger the calculation
 calculate_button = tk.Button(root, text="Calculate", command=calculate)
-calculate_button.grid(row=14, column=1)
+calculate_button.grid(row=16, column=0, pady=10, padx=10)
 
 # Start the tkinter main loop
 root.mainloop()
